@@ -1,0 +1,50 @@
+<div nz-row>
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12" nzXl="12">
+        <form [formGroup]="formCer" (ngSubmit)="submit()">
+            <div nz-row>
+                <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="20" nzXl="20">
+                    <div style="margin-bottom: 3%;">
+                        <label>Nombre</label>
+                        <input formControlName="nombre" nz-input class="custom-btn" nzSize="large" />
+                    </div>
+                    <div style="margin-bottom: 3%;">
+                        <label>Edad</label>
+                        <input formControlName="edad" nz-input class="custom-btn" nzSize="large" />
+                    </div>
+                    <div style="margin-bottom: 3%;">
+                        <label>Domicilio</label>
+                        <input formControlName="domicilio" nz-input class="custom-btn" nzSize="large" />
+                    </div>
+                    <div style="margin-bottom: 3%;">
+                        <label>Diagnostico</label>
+                        <input formControlName="diagnostico" nz-input class="custom-btn" nzSize="large" />
+                    </div>
+                    <div style="margin-bottom: 3%;">
+                        <label>Días de incapacidad</label>
+                        <input formControlName="diasIncapacidad" nz-input class="custom-btn" nzSize="large" />
+                    </div>
+                    <div style="margin-bottom: 3%; display: grid;">
+                        <label>Fecha</label>
+                        <nz-date-picker formControlName="fecha" class="custom-btn" nzSize="large"></nz-date-picker>
+                        <!-- <input formControlName="fecha" nz-input class="custom-btn" nzSize="large" /> -->
+                    </div>
+                </div>
+                <button nz-button nzType="primary" nzShape="round">
+                    Descargar Certificado
+                </button>
+            </div>
+        </form>
+    </div>
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12" nzXl="12">
+        <div nz-flex nzJustify="flex-end" style="margin-bottom: 2%;">
+            <button nz-button nzType="primary" nzShape="round" (click)="showModal()">Vista previa</button>
+        </div>
+        <iframe [src]="pdfPreviewUrl" width="100%" height="500px"></iframe>
+    </div>
+</div>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="" nzWidth="1000px" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+        <iframe [src]="pdfPreviewUrl" width="100%" height="500px"></iframe>
+    </ng-container>
+</nz-modal>

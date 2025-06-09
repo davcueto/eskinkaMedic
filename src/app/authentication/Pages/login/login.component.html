@@ -1,0 +1,21 @@
+<div class="form-login">
+    <div>
+        <form nz-form [formGroup]="loginForm" class="login-form" (ngSubmit)="submitForm()">
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your username!">
+                    <nz-input-group nzPrefixIcon="user" nzSize="large">
+                        <input type="text" nz-input formControlName="username" placeholder="Usuario" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Please input your Password!">
+                    <nz-input-group nzPrefixIcon="lock" nzSize="large">
+                        <input type="password" nz-input formControlName="password" placeholder="Contraseña" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Iniciar sesión</button>
+        </form>
+    </div>
+</div>
