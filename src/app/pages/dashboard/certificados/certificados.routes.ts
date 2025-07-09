@@ -6,6 +6,7 @@ import { CertificadosComponent } from './certificados.component';
 import { CerIncapacidadComponent } from './components/cer-incapacidad/cer-incapacidad.component';
 import { CerLesionesComponent } from './components/cer-lesiones/cer-lesiones.component';
 import { CerSaludComponent } from './components/cer-salud/cer-salud.component';
+import { authGuard } from '../../../guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -13,7 +14,8 @@ export const routes: Routes = [
     children: [
       {
         path: "prenupcial",
-        component: CerPrenupcialComponent
+        component: CerPrenupcialComponent,
+        canActivate: [authGuard]
       }
     ]
   },
@@ -22,7 +24,8 @@ export const routes: Routes = [
     children: [
       {
         path: "alumbramiento",
-        component: CerAlumbramientoComponent
+        component: CerAlumbramientoComponent,
+        canActivate: [authGuard]
       }
     ]
   },
@@ -31,7 +34,8 @@ export const routes: Routes = [
     children: [
       {
         path: "incapacidad",
-        component: CerIncapacidadComponent
+        component: CerIncapacidadComponent,
+        canActivate: [authGuard]
       }
     ]
   },
@@ -40,7 +44,8 @@ export const routes: Routes = [
     children: [
       {
         path: "lesiones",
-        component: CerLesionesComponent
+        component: CerLesionesComponent,
+        canActivate: [authGuard]
       }
     ]
   },
@@ -49,7 +54,8 @@ export const routes: Routes = [
     children: [
       {
         path: "salud",
-        component: CerSaludComponent
+        component: CerSaludComponent,
+        canActivate: [authGuard]
       }
     ]
   }

@@ -2,10 +2,10 @@
     <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
         [nzTrigger]="null">
         <div class="sidebar-logo">
-            <a href="https://ng.ant.design/" target="_blank">
-                <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
-                <h1>Ant Design of Angular</h1>
-            </a>
+            <nz-avatar [nzSize]="50" nzIcon="user" nz-popover [(nzPopoverVisible)]="visible"
+                (nzPopoverVisibleChange)="change($event)" nzPopoverTrigger="click"
+                [nzPopoverContent]="contentTemplate" nzPopoverPlacement="rightBottom"></nz-avatar>
+            <h1>Gabriel Casahonda</h1>
         </div>
         <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
             <li nz-submenu nzOpen nzTitle="Certificados Médicos" nzIcon="form">
@@ -51,3 +51,7 @@
         </nz-content>
     </nz-layout>
 </nz-layout>
+
+<ng-template #contentTemplate>
+    <a (click)="clickMe()">Cerrar sesión</a>
+</ng-template>
