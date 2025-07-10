@@ -19,7 +19,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies 📦
-        run: npm install
+        run: npm install --force
 
       - name: Build Angular project 🏗️
         run: npm run build -- --configuration production
