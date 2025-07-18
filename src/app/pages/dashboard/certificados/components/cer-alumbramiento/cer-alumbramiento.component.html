@@ -1,1 +1,85 @@
-<p>cer-alumbramiento works!</p>
+<div nz-row>
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12" nzXl="12">
+        <form [formGroup]="formCer" (ngSubmit)="submit()">
+            <div nz-row>
+                <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="20" nzXl="20">
+                    <div style="margin-bottom: 3%;">
+                        <label>Nombre del Padre</label>
+                        <input formControlName="nombrePadre" nz-input class="custom-btn" nzSize="large" />
+                    </div>
+                    <div style="margin-bottom: 3%;">
+                        <label>Nombre de la Madre</label>
+                        <input formControlName="nombreMadre" nz-input class="custom-btn" nzSize="large" />
+                    </div>
+                    <div nz-row [nzGutter]="[16,0]">
+                        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12" nzXl="12">
+                            <div style="margin-bottom: 3%;">
+                                <label>Sexo</label>
+                                <input formControlName="sexo" nz-input class="custom-btn" nzSize="large" />
+                            </div>
+                        </div>
+                        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12" nzXl="12">
+                            <div style="margin-bottom: 3%;">
+                                <label>Peso</label>
+                                <input formControlName="peso" nz-input class="custom-btn" nzSize="large" />
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 3%;">
+                        <label>Talla</label>
+                        <input formControlName="talla" nz-input class="custom-btn" nzSize="large" />
+                    </div>
+                    <div nz-row [nzGutter]="[16,0]">
+                        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12" nzXl="12">
+                            <div style="margin-bottom: 3%;">
+                                <label>Día</label>
+                                <input formControlName="dia" nz-input class="custom-btn" nzSize="large" />
+                            </div>
+                        </div>
+                        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12" nzXl="12">
+                            <div style="margin-bottom: 3%; display: grid;">
+                                <label>Hora</label>
+                                <input formControlName="hora" nz-input class="custom-btn" nzSize="large" />
+                            </div>
+                        </div>
+                    </div>
+                    <div nz-row [nzGutter]="[16,0]">
+                        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12" nzXl="12">
+                            <div style="margin-bottom: 3%; display: grid;">
+                                <label>P.C</label>
+                                <input formControlName="pc" nz-input class="custom-btn" nzSize="large" />
+                            </div>
+                        </div>
+                        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12" nzXl="12">
+                            <div style="margin-bottom: 3%; display: grid;">
+                                <label>P.T</label>
+                                <input formControlName="pt" nz-input class="custom-btn" nzSize="large" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div style="margin-bottom: 3%; display: grid;">
+                        <label>PIE</label>
+                        <input formControlName="pie" nz-input class="custom-btn" nzSize="large" />
+                    </div>
+                </div>
+                <button nz-button nzType="primary" nzShape="round">
+                    Descargar Certificado
+                </button>
+            </div>
+        </form>
+    </div>
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12" nzXl="12">
+        <div nz-flex nzJustify="flex-end" style="margin-bottom: 2%;">
+            <button nz-button nzType="primary" nzShape="round" (click)="showModal()">Vista previa</button>
+        </div>
+        <iframe [src]="pdfPreviewUrl" width="100%" height="500px"></iframe>
+    </div>
+</div>
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="" nzWidth="1000px" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+        <iframe [src]="pdfPreviewUrl" width="100%" height="500px"></iframe>
+    </ng-container>
+</nz-modal>
