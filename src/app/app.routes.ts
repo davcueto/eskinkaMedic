@@ -20,12 +20,22 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'coremedic',
+    path: 'certificados',
     component: MainComponent,
     children: [
       {
         path: '',
         loadChildren: () => import('./pages/dashboard/certificados/certificados.routes').then(m => m.routes)
+      }
+    ]
+  },
+  {
+    path: 'resetas',
+    component: MainComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./pages/dashboard/resetas/resetas.routes').then(m => m.routes)
       }
     ]
   },

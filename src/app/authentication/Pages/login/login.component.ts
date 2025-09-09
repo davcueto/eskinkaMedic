@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         const userCredential = await this.authService.login(this.username?.value, this.password?.value);
         const token = await userCredential.user.getIdToken();
         localStorage.setItem("accessToken", token);
-        this.router.navigate(['/coremedic/prenupcial']);
+        this.router.navigate(['/certificados/prenupcial']);
       } catch (error) {
         
       }
